@@ -1,0 +1,425 @@
+{
+  "version": 4,
+  "terraform_version": "1.7.0",
+  "serial": 6,
+  "lineage": "c6a41096-5358-6fa0-cda4-30f842ae6dd3",
+  "outputs": {
+    "bucket_domain_name": {
+      "value": "static-website-store.s3.amazonaws.com",
+      "type": "string"
+    },
+    "bucket_regional_domain_name": {
+      "value": "static-website-store.s3.us-east-1.amazonaws.com",
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "module": "module.my-website",
+      "mode": "data",
+      "type": "aws_iam_policy_document",
+      "name": "bucket-policy",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "1211543070",
+            "json": "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Effect\": \"Allow\",\n      \"Action\": \"s3:GetObject\",\n      \"Resource\": \"arn:aws:s3:::static-website-store/*\",\n      \"Principal\": \"*\"\n    }\n  ]\n}",
+            "override_policy_documents": null,
+            "policy_id": null,
+            "source_policy_documents": null,
+            "statement": [
+              {
+                "actions": [
+                  "s3:GetObject"
+                ],
+                "condition": [],
+                "effect": "Allow",
+                "not_actions": [],
+                "not_principals": [],
+                "not_resources": [],
+                "principals": [
+                  {
+                    "identifiers": [
+                      "*"
+                    ],
+                    "type": "*"
+                  }
+                ],
+                "resources": [
+                  "arn:aws:s3:::static-website-store/*"
+                ],
+                "sid": ""
+              }
+            ],
+            "version": "2012-10-17"
+          },
+          "sensitive_attributes": []
+        }
+      ]
+    },
+    {
+      "module": "module.my-website",
+      "mode": "managed",
+      "type": "aws_s3_bucket",
+      "name": "my-bucket",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "acceleration_status": "",
+            "acl": null,
+            "arn": "arn:aws:s3:::static-website-store",
+            "bucket": "static-website-store",
+            "bucket_domain_name": "static-website-store.s3.amazonaws.com",
+            "bucket_prefix": "",
+            "bucket_regional_domain_name": "static-website-store.s3.us-east-1.amazonaws.com",
+            "cors_rule": [],
+            "force_destroy": true,
+            "grant": [
+              {
+                "id": "",
+                "permissions": [
+                  "READ"
+                ],
+                "type": "Group",
+                "uri": "http://acs.amazonaws.com/groups/global/AllUsers"
+              },
+              {
+                "id": "cbcfaad39688da42e6249aca8cf45087ce33ff2a400507745083028cdf47cbaa",
+                "permissions": [
+                  "FULL_CONTROL"
+                ],
+                "type": "CanonicalUser",
+                "uri": ""
+              }
+            ],
+            "hosted_zone_id": "Z3AQBSTGFYJSTF",
+            "id": "static-website-store",
+            "lifecycle_rule": [],
+            "logging": [],
+            "object_lock_configuration": [],
+            "object_lock_enabled": false,
+            "policy": "{\"Statement\":[{\"Action\":\"s3:GetObject\",\"Effect\":\"Allow\",\"Principal\":\"*\",\"Resource\":\"arn:aws:s3:::static-website-store/*\"}],\"Version\":\"2012-10-17\"}",
+            "region": "us-east-1",
+            "replication_configuration": [],
+            "request_payer": "BucketOwner",
+            "server_side_encryption_configuration": [
+              {
+                "rule": [
+                  {
+                    "apply_server_side_encryption_by_default": [
+                      {
+                        "kms_master_key_id": "",
+                        "sse_algorithm": "AES256"
+                      }
+                    ],
+                    "bucket_key_enabled": false
+                  }
+                ]
+              }
+            ],
+            "tags": {
+              "environment": "dev",
+              "name": "static-website-store",
+              "owner": "devops",
+              "region": "us-east-1"
+            },
+            "tags_all": {
+              "environment": "dev",
+              "name": "static-website-store",
+              "owner": "devops",
+              "region": "us-east-1"
+            },
+            "timeouts": null,
+            "versioning": [
+              {
+                "enabled": true,
+                "mfa_delete": false
+              }
+            ],
+            "website": [
+              {
+                "error_document": "error.html",
+                "index_document": "index.html",
+                "redirect_all_requests_to": "",
+                "routing_rules": "[{\"Condition\":{\"KeyPrefixEquals\":\"/\"},\"Redirect\":{\"ReplaceKeyPrefixWith\":\"/index.html\"}}]"
+              }
+            ],
+            "website_domain": "s3-website-us-east-1.amazonaws.com",
+            "website_endpoint": "static-website-store.s3-website-us-east-1.amazonaws.com"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjM2MDAwMDAwMDAwMDAsInJlYWQiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19"
+        }
+      ]
+    },
+    {
+      "module": "module.my-website",
+      "mode": "managed",
+      "type": "aws_s3_bucket_acl",
+      "name": "my-bucket",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "access_control_policy": [
+              {
+                "grant": [
+                  {
+                    "grantee": [
+                      {
+                        "display_name": "",
+                        "email_address": "",
+                        "id": "",
+                        "type": "Group",
+                        "uri": "http://acs.amazonaws.com/groups/global/AllUsers"
+                      }
+                    ],
+                    "permission": "READ"
+                  },
+                  {
+                    "grantee": [
+                      {
+                        "display_name": "dr.kvishwanathan",
+                        "email_address": "",
+                        "id": "cbcfaad39688da42e6249aca8cf45087ce33ff2a400507745083028cdf47cbaa",
+                        "type": "CanonicalUser",
+                        "uri": ""
+                      }
+                    ],
+                    "permission": "FULL_CONTROL"
+                  }
+                ],
+                "owner": [
+                  {
+                    "display_name": "dr.kvishwanathan",
+                    "id": "cbcfaad39688da42e6249aca8cf45087ce33ff2a400507745083028cdf47cbaa"
+                  }
+                ]
+              }
+            ],
+            "acl": "public-read",
+            "bucket": "static-website-store",
+            "expected_bucket_owner": "",
+            "id": "static-website-store,public-read"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.my-website.aws_s3_bucket.my-bucket",
+            "module.my-website.aws_s3_bucket_ownership_controls.my-bucket-ownership-config",
+            "module.my-website.aws_s3_bucket_public_access_block.my-bucket-public-access-config"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.my-website",
+      "mode": "managed",
+      "type": "aws_s3_bucket_ownership_controls",
+      "name": "my-bucket-ownership-config",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "bucket": "static-website-store",
+            "id": "static-website-store",
+            "rule": [
+              {
+                "object_ownership": "BucketOwnerPreferred"
+              }
+            ]
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.my-website.aws_s3_bucket.my-bucket"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.my-website",
+      "mode": "managed",
+      "type": "aws_s3_bucket_policy",
+      "name": "my-bucket-policy-config",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "bucket": "static-website-store",
+            "id": "static-website-store",
+            "policy": "{\"Statement\":[{\"Action\":\"s3:GetObject\",\"Effect\":\"Allow\",\"Principal\":\"*\",\"Resource\":\"arn:aws:s3:::static-website-store/*\"}],\"Version\":\"2012-10-17\"}"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.my-website.aws_s3_bucket.my-bucket",
+            "module.my-website.data.aws_iam_policy_document.bucket-policy"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.my-website",
+      "mode": "managed",
+      "type": "aws_s3_bucket_public_access_block",
+      "name": "my-bucket-public-access-config",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "block_public_acls": false,
+            "block_public_policy": false,
+            "bucket": "static-website-store",
+            "id": "static-website-store",
+            "ignore_public_acls": false,
+            "restrict_public_buckets": false
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.my-website.aws_s3_bucket.my-bucket"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.my-website",
+      "mode": "managed",
+      "type": "aws_s3_bucket_versioning",
+      "name": "my-bucket-versioning-config",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "bucket": "static-website-store",
+            "expected_bucket_owner": "",
+            "id": "static-website-store",
+            "mfa": null,
+            "versioning_configuration": [
+              {
+                "mfa_delete": "",
+                "status": "Enabled"
+              }
+            ]
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.my-website.aws_s3_bucket.my-bucket"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.my-website",
+      "mode": "managed",
+      "type": "aws_s3_bucket_website_configuration",
+      "name": "my-bucket-website-config",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "bucket": "static-website-store",
+            "error_document": [
+              {
+                "key": "error.html"
+              }
+            ],
+            "expected_bucket_owner": "",
+            "id": "static-website-store",
+            "index_document": [
+              {
+                "suffix": "index.html"
+              }
+            ],
+            "redirect_all_requests_to": [],
+            "routing_rule": [
+              {
+                "condition": [
+                  {
+                    "http_error_code_returned_equals": "",
+                    "key_prefix_equals": "/"
+                  }
+                ],
+                "redirect": [
+                  {
+                    "host_name": "",
+                    "http_redirect_code": "",
+                    "protocol": "",
+                    "replace_key_prefix_with": "/index.html",
+                    "replace_key_with": ""
+                  }
+                ]
+              }
+            ],
+            "routing_rules": "[{\"Condition\":{\"KeyPrefixEquals\":\"/\"},\"Redirect\":{\"ReplaceKeyPrefixWith\":\"/index.html\"}}]",
+            "website_domain": "s3-website-us-east-1.amazonaws.com",
+            "website_endpoint": "static-website-store.s3-website-us-east-1.amazonaws.com"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.my-website.aws_s3_bucket.my-bucket"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.my-website",
+      "mode": "managed",
+      "type": "null_resource",
+      "name": "null-resource",
+      "provider": "provider[\"registry.terraform.io/hashicorp/null\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "6152985102855885799",
+            "triggers": {
+              "always-update": "2024-01-31T06:00:06Z"
+            }
+          },
+          "sensitive_attributes": [],
+          "dependencies": [
+            "module.my-website.aws_s3_bucket.my-bucket",
+            "module.my-website.time_sleep.time-sleep"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.my-website",
+      "mode": "managed",
+      "type": "time_sleep",
+      "name": "time-sleep",
+      "provider": "provider[\"registry.terraform.io/hashicorp/time\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "create_duration": "60s",
+            "destroy_duration": null,
+            "id": "2024-01-31T05:56:19Z",
+            "triggers": null
+          },
+          "sensitive_attributes": [],
+          "dependencies": [
+            "module.my-website.aws_s3_bucket.my-bucket"
+          ]
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}

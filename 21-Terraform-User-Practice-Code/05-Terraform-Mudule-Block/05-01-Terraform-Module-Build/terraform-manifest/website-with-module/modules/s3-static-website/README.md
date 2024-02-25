@@ -1,0 +1,13 @@
+# s3 static website
+- This module provisions a bucket to host static website.
+- This module require two input variables namely:
+    - aws_region
+	- bucket_name
+- This module provides some output, they are:
+    - bucket_name
+    - bucket_arn
+    - bucket_domain_name
+    - bucket_regional_domain_name
+    - bucket_static_website_domain
+    - bucket_static_website_endpoint
+    - bucket_static_website_url
